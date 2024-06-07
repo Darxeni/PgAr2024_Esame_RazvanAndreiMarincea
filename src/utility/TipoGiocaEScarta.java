@@ -1,7 +1,7 @@
 package utility;
 
 public enum TipoGiocaEScarta {
-    BANG,
+    Bang,
     Mancato,
     Birra,
     Saloon,

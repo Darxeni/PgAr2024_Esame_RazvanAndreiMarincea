@@ -3,6 +3,7 @@ package presentation;
 
 import it.kibo.fp.lib.InputData;
 import logic.GestionePartita;
+import logic.ReadXML;
 import utility.Carta;
 import utility.Giocatore;
 
@@ -12,13 +13,14 @@ import java.util.ArrayList;
 import static costants.costants.*;
 
 public class InterfacciaUtente {
-
+    private static final ArrayList<Carta> mazzo = new ArrayList<>();
     public static void start()  {
         System.out.println(PRESENTAZIONE);
         if (sceltaRegole())  {
             regole();
         }
         GestionePartita.creazioneGiocatori();
+        ReadXML.letturaCarteXML("src/resources/listaCarte.xml", mazzo);
         System.out.println("ciao");
     }
 

@@ -7,6 +7,11 @@ public class Giocatore {
     private int PF;
     private ArrayList<Carta> mano;
     private Ruolo tipoRuolo;
+    private Personaggio personaggio;
+
+    public void setPersonaggio(Personaggio personaggio) {
+        this.personaggio = personaggio;
+    }
 
     public Giocatore(String nome) {
         this.nome = nome;
@@ -24,8 +29,13 @@ public class Giocatore {
         return PF;
     }
 
-    public void setPF(int PF) {
-        this.PF = PF;
+    public void setPF(int PF, int i) {
+        if (i == 0){
+            this.PF = PF + 1;
+        }
+        else {
+            this.PF = PF;
+        }
     }
 
     public ArrayList<Carta> getMano() {
@@ -42,11 +52,5 @@ public class Giocatore {
 
     public void setTipoRuolo(Ruolo tipoRuolo) {
         this.tipoRuolo = tipoRuolo;
-        if(tipoRuolo.equals(Ruolo.Sceriffo)){
-            this.setPF(5);
-        }
-        else{
-            this.setPF(4);
-        }
     }
 }
