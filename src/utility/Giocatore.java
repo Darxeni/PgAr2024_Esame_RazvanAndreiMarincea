@@ -5,9 +5,17 @@ import java.util.ArrayList;
 public class Giocatore {
     private String nome;
     private int PF;
-    private ArrayList<Carta> mano;
+    private ArrayList<Carta> mano =  new ArrayList<>();
+    private ArrayList<Carta> carteEquipaggiate;
     private Ruolo tipoRuolo;
     private Personaggio personaggio;
+    private int distanza = 1;
+
+
+
+    public void setPF(int PF) {
+        this.PF = PF;
+    }
 
     public void setPersonaggio(Personaggio personaggio) {
         this.personaggio = personaggio;
@@ -19,10 +27,6 @@ public class Giocatore {
 
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public int getPF() {
@@ -42,15 +46,32 @@ public class Giocatore {
         return mano;
     }
 
-    public void setMano(ArrayList<Carta> mano) {
-        this.mano = mano;
-    }
-
-    public Ruolo getTipoRuolo() {
-        return tipoRuolo;
-    }
-
     public void setTipoRuolo(Ruolo tipoRuolo) {
         this.tipoRuolo = tipoRuolo;
+    }
+
+    public int getDistanza() {
+        return distanza;
+    }
+
+    public void aggiungiCarteAllaMano(Carta carta) {
+        this.mano.add(carta);
+    }
+
+    public void aggiungiArmaSulCampo(Arma carta) {
+        this.carteEquipaggiate.add(carta);
+        this.distanza += carta.getDistanza();
+    }
+
+    public void aggiungiStrumentoSulCampo(Equipaggiabile carta) {
+        this.carteEquipaggiate.add(carta);
+        switch (carta.getTipoEquipaggiabile()){
+            case Barile:
+                break;
+            case Mirino:
+                break;
+            case Mustang:
+                break;
+        }
     }
 }

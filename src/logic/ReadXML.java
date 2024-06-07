@@ -11,7 +11,7 @@ import java.util.HashMap;
 import static costants.costants.*;
 
 public class ReadXML {
-    public static void letturaCarteXML(String filename, ArrayList<Carta> mazzo) {
+    public static void letturaCarteXML(String filename, ArrayList<? super Carta> mazzo) {
         XMLInputFactory xmlif;
         XMLStreamReader xmlr;
 

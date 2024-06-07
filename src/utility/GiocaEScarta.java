@@ -11,4 +11,17 @@ public class GiocaEScarta extends Carta{
         super(nome, descrizione, copie, valoreSeme);
         this.tipoGiocaEScarta = tipoGiocaEScarta;
     }
+
+    public GiocaEScarta(String nome, String descrizione, CoppiaValoreSeme coppiaValoreSeme, TipoGiocaEScarta tipoGiocaEScarta) {
+        super(nome, descrizione, coppiaValoreSeme);
+        this.tipoGiocaEScarta = tipoGiocaEScarta;
+    }
+
+    public TipoGiocaEScarta getTipoGiocaEScarta() {
+        return tipoGiocaEScarta;
+    }
+
+    public void setTipoGiocaEScarta(TipoGiocaEScarta tipoGiocaEScarta) {
+        this.tipoGiocaEScarta = tipoGiocaEScarta;
+    }
 }
