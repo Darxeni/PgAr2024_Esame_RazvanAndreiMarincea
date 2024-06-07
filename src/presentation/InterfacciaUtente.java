@@ -1,6 +1,8 @@
 package presentation;
 
 
+import it.kibo.fp.lib.InputData;
+import logic.GestionePartita;
 import utility.Carta;
 import utility.Giocatore;
 
@@ -10,36 +12,46 @@ import java.util.ArrayList;
 import static costants.costants.*;
 
 public class InterfacciaUtente {
-    ArrayList<Giocatore> giocatori;
-    ArrayList<Carta> mazzo;
-
 
     public static void start()  {
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(PRESENTAZIONE);
+        if (sceltaRegole())  {
+            regole();
+        }
+        GestionePartita.creazioneGiocatori();
+        System.out.println("ciao");
     }
 
 
 
+    /**
+     * <code>sceltaPresentazione</code> permette all'utente di scegliere se vuole visualizzare nuovamente la presentazione del gioco
+     */
+    private static boolean sceltaRegole()     {
+        char scelta;
+        do  {
+            scelta = InputData.readChar(SCELTA_REGOLAMENTO);
+            System.out.println();
+            if (scelta == 'y')  {
+                return true;
+            }
+            else if (scelta == 'n')     {
+                return false;
+            }
+            else    {
+                System.out.println(CNV);
+            }
+        } while(true);
+    }
 
-
-
-
-
-
-
-
-
+    /**
+     * <code>presentazione</code> stampa la presentazione iniziale.
+     */
+    private static void regole()     {
+        System.out.println(REGOLAMENTO);
+        System.out.println(STOP);
+        stop();
+    }
 
     /**
      * <code>stop</code> permette di attendere un input da tastiera prima di proseguire il gioco.
